@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:HomeApp"
+            x:Class="HomeApp.Pages.AlarmPage">
+
+    <StackLayout  HorizontalOptions="Center"  x:Name="stackLayout">
+        <Label Text="Установить будильник" FontSize="Title" Padding="30,30,30,20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <StackLayout  x:Name="innerStackLayout">
+            <Label Text="Выберите дату" Padding="0,20,0,0"  VerticalTextAlignment="Center" />
+            <DatePicker x:Name="datePicker" Format="D" PropertyChanged="DateChangeHandler" Style="{StaticResource Key=ValidDateStyle}" ></DatePicker>
+
+            <Label Text="Выберите время" Padding="0,20,0,0"   VerticalTextAlignment="Center" />
+            <TimePicker x:Name="timePicker" Time="17:00:00" PropertyChanged="TimeChangeHandler" Style="{StaticResource Key=ValidTimeStyle}"  ></TimePicker>
+
+            <Label Text="Установите громкость" x:Name="volumeHeader" Padding="0,20,0,0"   VerticalTextAlignment="Center" />
+            <Slider Minimum="0" Maximum="30" Value="10" x:Name="volumeSlider"  MinimumTrackColor="DodgerBlue" MaximumTrackColor="Gray" ThumbColor="DodgerBlue"  ValueChanged="VolumeHandler"/>
+
+            <Label Text="Повторять каждый день" x:Name="recurringHeader" Padding="0,20,0,0"  HorizontalOptions="Center" />
+            <Switch IsToggled="true" x:Name="recurringSwitch" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  ThumbColor="DodgerBlue" OnColor="LightSteelBlue"/>
+
+            <Button x:Name="saveButton" Text="Сохранить" Clicked="SaveAlarmHandler"/>
+        </StackLayout>
+        <Label x:Name="resultMessage" FontSize="Medium" Padding="0,20,0,0"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+    </StackLayout>
+</ContentPage>
